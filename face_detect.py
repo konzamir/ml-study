@@ -12,8 +12,6 @@ def detectAndDisplay(frame):
     faces = face_cascade.detectMultiScale(frame_gray)
     for (x, y, w, h) in faces:
         center = (x + w//2, y + h//2)
-        # frame = cv.ellipse(frame, center, (w//2, h//2),
-        #                    0, 0, 360, (255, 0, 255), 4)
         faceROI = frame_gray[y:y+h, x:x+w]
         frame = cv.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
@@ -53,7 +51,8 @@ def run():
                 break
 
 
-run()
+if __name__ == '__main__':
+    run()
 # # -- 2. Read the video stream
 # camera_device = args.camera
 # cap = cv.VideoCapture(camera_device)
